@@ -11,6 +11,7 @@
       item={todoItem}
       itemBG={todoItem.isDone ? ' bg-green-500' : ' bg-red-500'}
       on:mark-as-done
+      on:delete-item
     />
   {/each}
 </div>

@@ -7,8 +7,12 @@
 
   const dispatcher = createEventDispatcher();
 
-  function handleCheckBtn(itemId: number) {
-    dispatcher('mark-as-done', itemId);
+  function handleCheckBtn(itemID: number) {
+    dispatcher('mark-as-done', itemID);
+  }
+
+  function handleXBtn(itemID: number) {
+    dispatcher('delete-item', itemID);
   }
 </script>
 
@@ -28,7 +32,7 @@
       {#if !item.isDone}
         <button on:click={() => handleCheckBtn(item.id)}>&#10003;</button>
       {/if}
-      <button>X</button>
+      <button on:click={() => handleXBtn(item.id)}>X</button>
     </div>
   </div>
 

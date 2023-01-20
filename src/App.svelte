@@ -24,6 +24,12 @@
       item.id == selectedItemID ? { ...item, isDone: !item.isDone } : item
     );
   }
+
+  function deleteItem(event: CustomEvent<any>) {
+    const selectedItemID = event.detail;
+
+    todoContainer = todoContainer.filter((item) => item.id != selectedItemID);
+  }
 </script>
 
 <main class="flex flex-col items-center">
@@ -34,6 +40,10 @@
       <span class="text-4xl">Svelte TODO App</span>
     </div>
 
-    <ItemsContainer Items={todoContainer} on:mark-as-done={markAsDone} />
+    <ItemsContainer
+      Items={todoContainer}
+      on:mark-as-done={markAsDone}
+      on:delete-item={deleteItem}
+    />
   </div>
 </main>
