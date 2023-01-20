@@ -7,6 +7,8 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
@@ -14,6 +16,7 @@
     "@tsconfig/svelte": "^3.0.0",
     "@types/uuid": "^9.0.0",
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.21",
     "svelte": "^3.54.0",
     "svelte-check": "^2.10.0",
