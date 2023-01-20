@@ -7,6 +7,6 @@
 
 <div class="mt-5">
   {#each Items as todoItem (todoItem.id)}
-    <ItemCard item={todoItem} />
+    <ItemCard item={todoItem} on:mark-as-done />
   {/each}
 </div>

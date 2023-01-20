@@ -14,6 +14,10 @@
       body: 'This is a test',
     },
   ];
+
+  function markAsDone(event: CustomEvent<any>) {
+    console.log(event.detail);
+  }
 </script>
 
 <main class="flex flex-col items-center">
@@ -24,6 +28,6 @@
       <span class="text-4xl">Svelte TODO App</span>
     </div>
 
-    <ItemsContainer Items={todoContainter} />
+    <ItemsContainer Items={todoContainter} on:mark-as-done={markAsDone} />
   </div>
 </main>
