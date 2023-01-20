@@ -48,18 +48,18 @@
     on:submit|preventDefault={handleSubmit}
     class="text-xl flex flex-col items-center"
   >
-    <div class="mb-3">
+    <div class="mb-3 flex flex-row justify-between w-[400px]">
       <label for="title">Input title: </label>
       <input
         type="text"
         id="title"
         bind:value={titleText}
         on:input={() => validateInputs(1)}
-        class="border-2 border-black rounded w-[300px]"
+        class="border-2 border-black rounded w-[280px]"
       />
     </div>
 
-    <div class="flex flex-row items-center justify-between">
+    <div class="flex flex-row items-center justify-between w-[400px]">
       <label for="body">Input details: </label>
       <textarea
         id="body"
