@@ -1,5 +1,5 @@
 export type TODOItem = {
-  id: number;
+  id: string;
   title: string;
   body: string;
   isDone: boolean;
