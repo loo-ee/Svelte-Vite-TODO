@@ -1,6 +1,7 @@
 {
   "name": "svelte-to-do",
   "private": true,
+  "homepage": "http://lui523202.github.io/Svelte-Vite-TODO",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
