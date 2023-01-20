@@ -1,16 +1,17 @@
 <script lang="ts">
   import ItemsContainer from './components/ItemsContainer.svelte';
+  import ToDoForm from './components/ToDoForm.svelte';
   import type { TODOItem } from './util/types';
 
   let todoContainer: TODOItem[] = [
     {
-      id: 1,
+      id: '1',
       title: 'TODO 1',
       body: 'This is a test',
       isDone: false,
     },
     {
-      id: 2,
+      id: '2',
       title: 'TODO 2',
       body: 'This is a test',
       isDone: true,
@@ -30,6 +31,11 @@
 
     todoContainer = todoContainer.filter((item) => item.id != selectedItemID);
   }
+
+  function addTODO(event: CustomEvent<any>) {
+    const todoItem = event.detail;
+    todoContainer = [...todoContainer, todoItem];
+  }
 </script>
 
 <main class="flex flex-col items-center">
@@ -46,4 +52,6 @@
       on:delete-item={deleteItem}
     />
   </div>
+
+  <ToDoForm on:add-todo={addTODO} />
 </main>

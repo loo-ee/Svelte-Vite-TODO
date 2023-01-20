@@ -7,11 +7,11 @@
 
   const dispatcher = createEventDispatcher();
 
-  function handleCheckBtn(itemID: number) {
+  function handleCheckBtn(itemID: string) {
     dispatcher('mark-as-done', itemID);
   }
 
-  function handleXBtn(itemID: number) {
+  function handleXBtn(itemID: string) {
     dispatcher('delete-item', itemID);
   }
 </script>
@@ -23,10 +23,7 @@
     class={'flex flex-row items-baseline justify-between w-full border-2 rounded p-2 text-white' +
       itemBG}
   >
-    <div class="flex flex-row items-baseline">
-      <span class="text-2xl text-white">{item.id}</span>
-      <span class="text-xl ml-4 font-semibold">{item.title}</span>
-    </div>
+    <span class="text-xl ml-4 font-semibold">{item.title}</span>
 
     <div class="flex flex-row justify-around w-[70px] text-xl">
       {#if !item.isDone}
