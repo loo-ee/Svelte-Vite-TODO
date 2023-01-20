@@ -3,6 +3,7 @@
   import type { TODOItem } from '../util/types';
 
   export let item: TODOItem;
+  export let itemBG: string;
 
   const dispatcher = createEventDispatcher();
 
@@ -15,7 +16,8 @@
   class="w-[300px] border-black border-4 p-2 rounded-lg flex flex-col items-start mb-3"
 >
   <div
-    class="flex flex-row items-baseline justify-between w-full border-2 bg-red-400 rounded p-2 text-white"
+    class={'flex flex-row items-baseline justify-between w-full border-2 rounded p-2 text-white' +
+      itemBG}
   >
     <div class="flex flex-row items-baseline">
       <span class="text-2xl text-white">{item.id}</span>

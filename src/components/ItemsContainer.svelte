@@ -7,6 +7,10 @@
 
 <div class="mt-5">
   {#each Items as todoItem (todoItem.id)}
-    <ItemCard item={todoItem} on:mark-as-done />
+    <ItemCard
+      item={todoItem}
+      itemBG={todoItem.isDone ? ' bg-green-500' : ' bg-red-500'}
+      on:mark-as-done
+    />
   {/each}
 </div>
