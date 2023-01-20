@@ -2,7 +2,7 @@
   import ItemsContainer from './components/ItemsContainer.svelte';
   import type { TODOItem } from './util/types';
 
-  let todoContainter: TODOItem[] = [
+  let todoContainer: TODOItem[] = [
     {
       id: 1,
       title: 'TODO 1',
@@ -18,7 +18,11 @@
   ];
 
   function markAsDone(event: CustomEvent<any>) {
-    console.log(event.detail);
+    const selectedItemID = event.detail;
+
+    todoContainer = todoContainer.map((item) =>
+      item.id == selectedItemID ? { ...item, isDone: !item.isDone } : item
+    );
   }
 </script>
 
@@ -30,6 +34,6 @@
       <span class="text-4xl">Svelte TODO App</span>
     </div>
 
-    <ItemsContainer Items={todoContainter} on:mark-as-done={markAsDone} />
+    <ItemsContainer Items={todoContainer} on:mark-as-done={markAsDone} />
   </div>
 </main>

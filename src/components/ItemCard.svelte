@@ -25,7 +25,9 @@
     </div>
 
     <div class="flex flex-row justify-around w-[70px] text-xl">
-      <button on:click={() => handleCheckBtn(item.id)}>&#10003;</button>
+      {#if !item.isDone}
+        <button on:click={() => handleCheckBtn(item.id)}>&#10003;</button>
+      {/if}
       <button>X</button>
     </div>
   </div>
