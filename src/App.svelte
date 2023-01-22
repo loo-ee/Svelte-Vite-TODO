@@ -2,32 +2,27 @@
   import ItemsContainer from './components/ItemsContainer.svelte';
   import ToDoForm from './components/ToDoForm.svelte';
   import { taskStore } from './util/store';
-  import type { TODOItem } from './util/types';
 
   function markAsDone(event: CustomEvent<any>) {
-    let todoContainer: TODOItem[] = [];
     const selectedItemID = event.detail;
-
-    todoContainer = todoContainer.map((item) =>
-      item.id == selectedItemID ? { ...item, isDone: !item.isDone } : item
+    taskStore.update(
+      (tasks) =>
+        (tasks = tasks.map((item) =>
+          item.id == selectedItemID ? { ...item, isDone: !item.isDone } : item
+        ))
     );
-
-    taskStore.set(todoContainer);
   }
 
   function deleteItem(event: CustomEvent<any>) {
-    let todoContainer: TODOItem[] = [];
     const selectedItemID = event.detail;
-
-    todoContainer = todoContainer.filter((item) => item.id != selectedItemID);
-    taskStore.set(todoContainer);
+    taskStore.update(
+      (tasks) => (tasks = tasks.filter((item) => item.id != selectedItemID))
+    );
   }
 
   function addTODO(event: CustomEvent<any>) {
-    let todoContainer: TODOItem[] = [];
     const todoItem = event.detail;
-    todoContainer = [...todoContainer, todoItem];
-    taskStore.set(todoContainer);
+    taskStore.update((tasks) => (tasks = [...tasks, todoItem]));
   }
 </script>
 
