@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import { fly, fade } from 'svelte/transition';
   import type { TODOItem } from '../util/types';
 
   export let item: TODOItem;
@@ -17,6 +18,8 @@
 </script>
 
 <div
+  in:fly={{ duration: 2000 }}
+  out:fade
   class="w-[300px] border-black border-4 p-2 rounded-lg flex flex-col items-start mb-3"
 >
   <div
@@ -34,6 +37,6 @@
   </div>
 
   <div class="mt-4">
-    <span class="text-xl">{item.body}</span>
+    <span class="text-xl ml-3">{item.body}</span>
   </div>
 </div>
